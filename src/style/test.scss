@@ -1,0 +1,92 @@
+$AIcolor: #4F73FF;
+
+.ai-recommend-popover-wrapper {
+  position: relative;
+  width: 395px;
+  background: #fff;
+  .ai-recommend-popover-title {
+     font-family: PingFangSC-Medium;
+     font-size: 16px;
+     color: #33383D;  
+     margin-top: 0;
+     margin-bottom: 20px;
+   }
+  .ai-recommend-card {
+    display: flex;
+    flex-direction: row;
+    max-height: calc(300px - 82.4px);
+    overflow-y: auto;
+  }
+  .ai-recommend-card-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 80px;
+    color: #4F73FF;
+    border-right: 1px dashed #E6E8EB;
+    margin-right: 12px;
+    padding-right: 12px;
+    font-family: PingFangSC-Semibold;
+    text-align: center;
+    .ai-recommend-card-percent {
+     font-size: 30px;
+     line-height: 38px;
+     margin-bottom: 8px;
+    }
+    .ai-recommend-card-match-degree {
+      font-size: 12px;
+      font-family: PingFangSC-Regular;
+      color: #4F73FF;
+      line-height: 20px;
+      margin: 8px auto;
+    }
+  }
+  .ai-recommend-card-right {
+    display: flex;
+    flex-direction: row;
+    .ai-recommend-card-recommend-reason {
+      width: 60px;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #565E66;
+      line-height: 20px;
+      white-space: nowrap;
+    }
+    .ai-recommend-card-reason-list {
+      max-height: 100px;
+      font-family: PingFangSC-Regular;
+      font-size: 12px;
+      color: #0E1114;
+      line-height: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .ai-recommend-popover-arrow {
+    position: absolute;
+    width: 11.3px;
+    height: 11.3px;
+    border-width: 12px;
+    left: calc(50% - 5.6px);
+    bottom: -6px;
+    transform: rotate(45deg);
+    background: white;
+    border-top-color: transparent;
+    border-right-color: #fff;
+    border-bottom-color: #fff;
+    border-left-color: transparent;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.17);
+  }
+  .ai-recommend-popover-inner {
+    box-sizing: border-box;
+    min-height: 180px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 20px 16px 40px 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  }  
+}
+
