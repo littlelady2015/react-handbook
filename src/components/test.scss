@@ -1,0 +1,25 @@
+.helper-cartoon {
+  position: relative;
+  width: 116px;
+  height: 128px;
+  background: url('../assets/helper-concat.png') no-repeat 0 0;
+  &__dynamic-blink {
+    animation: helper-cartoon-dynamic 3s infinite steps(11);
+  }
+  &__dynamic-jump {
+    animation: jump-cartoon-dynamic 1s 2 cubic-bezier(.59,.01,.43,1);
+  }
+}
+@keyframes helper-cartoon-dynamic{
+  to {
+    background-position: 100%;
+  }
+}
+@keyframes jump-cartoon-dynamic {
+  50% {
+  transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
