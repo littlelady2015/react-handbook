@@ -1,34 +1,75 @@
 {
-  "name": "react-handbook",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "react-handbook",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "@beisen-phoenix/style-token": "^3.5.19",
+        "@beisen/fetch": "^2.0.2",
+        "@types/lodash": "^4.14.162",
+        "@types/react": "^16.9.53",
+        "@typescript-eslint/eslint-plugin": "^4.11.0",
+        "@typescript-eslint/parser": "^4.11.0",
+        "babel-eslint": "^10.1.0",
+        "customize-cra": "^0.9.1",
+        "eslint": "^7.16.0",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.6",
+        "lodash": "^4.17.20",
+        "preact": "^10.5.5",
+        "rc-trigger": "^4.0.2",
+        "react": "^17.0.1",
+        "react-dom": "^16.13.0",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.1.2",
+        "react-scripts": "3.4.0",
+        "sass": "^1.26.3",
+        "sass-loader": "^8.0.2",
+        "typescript": "^3.9.2",
+        "viewerjs": "^1.7.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "commit": "git-cz",
+        "lint:script": "eslint --ext .ts,tsx,js,jsx src",
+        "fix:script": "eslint --fix --ext .ts,tsx,js,jsx src",
+        "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css,scss,less}",
+        "tsc": "tsc"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "eslint-plugin-react": "^7.21.5",
+        "react-app-rewired": "^2.1.6"
+    },
+    "config": {
+        "commitizen": {
+            "path": "cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{ts,tsx,js,jsx}": [
+            "eslint"
+        ]
+    }
 }

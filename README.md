@@ -1,3 +1,4 @@
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,43 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+### BEM
+w3cplus.com/css/css-architecture-1.html
+
+### REACT API
+* unmountComponentAtNode
+protal 不能用于服务器端渲染；
+什么是服务器端渲染？
+* componentDidCatch
+在“commit”阶段调用
+在任何子组件生命周期中的error都可以catch到；
+只能捕捉下层的error，不能捕获当前组件抛出的error
+```javascript
+componentDidCatch(errorString, errorInfo) {
+  this.setState({
+    error: errorString
+  })
+}
+render() {
+  if(this.state.error) {
+    return <div>Error: { this.state.error }</div>
+  }else {
+    return this.props.children;
+  }
+}
+```
+渲染时候抛出了error，react默认处理是将组件树全部删掉；
+overlay出错界面,在componentDidCatch后也会出现；
+### 更强的服务器端渲染
+### 可定制Css Attribute
+鼓励所有的attribute都加上data前缀;
+### 合适的升级策略
+phase1的生命周期函数，可能会被执行多次；所以不要写副作用；
+
+如何设置任务的优先级？
+fiber node
+和虚拟dom的联系
+生命周期不会执行多次
+requestAnimation 和空闲时期
