@@ -1,35 +1,48 @@
-import React, { Component } from 'react';
-import RcViewer from './rc-viewer';
-import './index.scss';
-export default class ImagePreview extends Component {
+import React, { Component, reactEvent } from 'react';
+export default class QrCode extends Component {
   constructor(props) {
     super(props);
-
+    this.handleClick = this.handleClick.bind(this); 
+    this.handleClickQr = this.handleClickQr.bind(this);
     this.state = {
-      images: []
-    }
-
+      active: false,
+    };
   }
-  
+  componentDidMount() {
+    document.body.addEventListener('click', e => {
+      if(e.target && e.target.matches('div code')) {
+        return false;
+      }
+      this.setState({
+        active: false,
+      });
+    });
+    // document.querySelector('.code').addEventListener('click', e => {
+    //   e.stopPropagation();
+    // })
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener('click');
+    document.querySelector('.code').removeEventListener('click');
+  }
+  handleClick() {
+    this.setState({
+      active: !this.state.active,
+    });
+  }
+  handleClickQr() {
+    reactEvent.nativeEvent.stopPropagation();
+  }
   render() {
-    const options = {
-      toolbar: false,
-      moveable: false,
-      rotatable: false,
-      zoomOnWheel: false
-    }
     return (
-    <RcViewer options={options}>
-        <ul id="images">
-          <img src="http://10.99.28.180:8080/1.jpg" alt="Picture 1" />
-          <span>图片1</span>
-          <img src="http://10.99.28.180:8080/2.jpg" alt="Picture 2" />
-          <span>图片2</span>
-          <img src="http://10.99.28.180:8080/3.jpg" alt="Picture 3" />
-          <span>图片3</span>
-        </ul>
-      </RcViewer>
+      <div className="qr-wrapper">
+        <button className="qr" onClick={this.handleClick}>点击展示</button> <div
+          className="code"
+          onClick={this.handleClickQr}
+          style={{ display: this.state.active ? 'block' : 'none' }}
+        >
+          <img src="https://i0.hdslb.com/bfs/face/693e5fd83df7c7fc86af00a594ade5ee4671db79.jpg@96w_96h_1c.webp" alt="qr" />
+        </div> </div>
     );
   }
 }
-

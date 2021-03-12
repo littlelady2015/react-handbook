@@ -1,11 +1,4 @@
-@import '@beisen-phoenix/style-token/css/variable.scss';
-.button {
-  border: 1px solid $M5;
-  background: $S1;
-}
-.button--secondary {
-  background: $D4;
-}
+
 [class*='button']:not([class='button__']) {
   padding: 0.5em 0.75em;
 

@@ -2,18 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link, BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import BEMExample from './components/BEMExample';
-
+import Hoc from './components/hoc';
+import Diff from './components/Diff';
 ReactDOM.render(<Router>
   <ul>
     <li>
       <Link to="/">App</Link>
     </li>
     <li>
-      <Link to="/bem">BEM Example</Link>
+      <Link to="/hoc">BEM Example</Link>
     </li>
   </ul>
   <hr />
@@ -21,8 +20,12 @@ ReactDOM.render(<Router>
     <Route exact path="/">
       <App />
     </Route>
-    <Route path="/bem">
-      <BEMExample />
+    <Route path="/hoc">
+      <Hoc />
+      {/* <BEMExample list={[{value: '1'},{value: '2'}, {value: '3'}]}/> */}
+    </Route>
+    <Route path="/diff">
+      <Diff />
     </Route>
   </Switch>
 </Router>, document.getElementById('root'));
